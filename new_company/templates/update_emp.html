@@ -1,0 +1,16 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Update an employee</h2>
+        <input value="{{ single_emp.first_last_name}}" type="text" name="name">
+        <input value="{{ single_emp.position}}" type="text" name="position">
+        <select name="branch">
+            {% for branch in branches %}
+            <option value="{{branch.id}}">{{branch.name}}</option>
+            {% endfor %}
+        </select>
+        <p>Birth of date:</p>
+        <input value="{{ single_emp.birthdate }}" type="date" name="birthdate"></input>
+        <p>Date of employment:</p>
+        <input value="{{ single_emp.employment_date }}" type="date" name="employment_date">
+    <button type="submit">Update</button>
+</form>

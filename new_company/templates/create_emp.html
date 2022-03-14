@@ -1,0 +1,17 @@
+<form method="POST" action=".">
+    {% csrf_token %}
+    <h2>Creating new employee</h2>
+        <input type="text" name="name" placeholder="name">
+        <input type="text" name="position" placeholder="position">
+        <p>Branch:</p>
+        <select name="branch">
+            {% for branch in branches %}
+            <option value="{{branch.id}}">{{branch.name}}</option>
+            {% endfor %}
+        </select>
+        <p>Birth of date:</p>
+        <input type="date" name="birthdate">
+        <p>Date of employment:</p>
+        <input type="date" name="employment_date">
+    <button type="submit">Create</button>
+</form>
